@@ -51,7 +51,7 @@ describe("Game Service Test", () => {
 		expect(game.logs).toEqual(expect.arrayContaining(updateData.logs));
 	});
 
-	it("Update reset", async () => {
+	it("Game reset", async () => {
 		const game = await gameService.reset();
 		expect(game.ticks).toEqual(expect.arrayContaining(newGame.ticks));
 		expect(game.player_state).toBe(newGame.player_state);
