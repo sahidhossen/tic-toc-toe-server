@@ -9,15 +9,15 @@ gameService.getGame = async () => {
 };
 
 gameService.createGame = async () => {
-	const game = await Model.Game.create({ status: 1, logs: ["Game Started"] });
+	const game = await Model.Game.create({ status: 1, logs: ["Start Game"] });
 	return game;
 };
 
 gameService.updateGame = async (body) => {
-	const game = await gameService.getGame();
+	let game = await gameService.getGame();
 	if (!game) throw "Game not found";
 	Object.assign(game, body);
-	(await game).save();
+	game = await game.save();
 	return game;
 };
 

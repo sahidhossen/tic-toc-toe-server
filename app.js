@@ -1,6 +1,5 @@
 const express = require("express");
-const routes = require("../src/routes");
-const config = require("./index");
+const routes = require("./src/routes");
 const app = express();
 
 app.use(express.json());
@@ -19,8 +18,4 @@ app.all("/*", (request, response, next) => {
 
 app.use(routes);
 
-module.exports = () => {
-	app.listen(config.port, () => {
-		console.log(`**************Server is running on ${config.port} **************`);
-	});
-};
+module.exports = app;

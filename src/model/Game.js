@@ -11,9 +11,6 @@ const game_Schema = new Schema({
 		type: String,
 		default: "x",
 	},
-	winner: {
-		type: String,
-	},
 	players: {
 		type: Schema.Types.Mixed,
 		default: { x: { name: "X", wins: 0 }, o: { name: "O", wins: 0 } },

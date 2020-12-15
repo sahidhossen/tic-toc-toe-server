@@ -6,7 +6,7 @@ const config = {
 	port: process.env.PORT,
 	db_url: process.env.MONGODB_URI,
 	token: process.env.SESSION_TOKEN,
-	game: { ticks: Array.from(Array(9).fill(0)), logs: [], player_state: "x", winner: null },
+	game: { ticks: Array.from(Array(9).fill(0)), logs: [], player_state: "x" },
 };
 
 module.exports = config;
