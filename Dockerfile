@@ -1,6 +1,8 @@
 FROM node:latest
-WORKDIR /Users/sahid/Desktop/M/tick-tack-toe/server
+WORKDIR /usr/app
 COPY package.json ./
-RUN yarn install
+RUN npm install -g nodemon
+RUN npm install
 COPY . .
 EXPOSE 5000
+CMD ["npm", "start"]

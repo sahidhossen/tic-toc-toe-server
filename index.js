@@ -4,13 +4,14 @@ const app = require("./app");
 
 const dbConnect = require("./config/dbConnect");
 
-dbConnect(config.db_url)
-	.then((resolve) => {
-		console.log(`*********DB is connected successfully*********`);
-		app.listen(config.port, () => {
-			console.log(`**************Server is running on ${config.port} **************`);
+app.listen(config.port, () => {
+	console.log(`**************Server is running on ${config.port} **************`);
+
+	dbConnect(config.db_url)
+		.then((resolve) => {
+			console.log(`*********DB is connected successfully*********`);
+		})
+		.catch((err) => {
+			console.log(`*********err*********  ${err} ${config.db_url}`);
 		});
-	})
-	.catch((err) => {
-		console.log(`*********err*********  ${err}`);
-	});
+});
